@@ -1,0 +1,96 @@
+{% extends 'base.html' %} 
+{% block title %} user_Profile {% endblock %}
+{% load static %}
+{% block css %} <link rel="stylesheet" href="{% static 'accounts/css/user_Profile.css' %}"> {% endblock %}
+
+{% block content %}
+
+<div class="user_container" style="background-color:#FFFFFF;margin-top: 3%;">
+    <div class="user_profile">
+        <h1>{{ profile_user.username }}'s Profile</h1>
+        <div class="image-divide">
+            <div class="first-image">
+                {% if profile_user.profile_picture %}
+                <img src="{{ profile_user.profile_picture.url }}" alt="Profile Picture" width="200">
+                {% endif %}
+            </div>
+    
+            <div class="bio">
+                <div class="bio-news">
+                <p><span style="color: green;font-weight: 600;">Bio:</span> {{ profile_user.bio }}</p>  
+                <div class="bio-container">
+                    <div class="bio-divide">
+                        <p>Followers: <i class="fa fa-thumbs-o-up" aria-hidden="true" style="color: #FFA500;"></i> {{ follower_count }}</p>
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true" style="color: #FFA500;"></i>
+                    </div>
+                    <div class="bio-divides">
+                    <p>Following: <i class="fa fa-heart-o" aria-hidden="true" style="color: red;"></i> {{ following_count }}</p>
+                    <i class="fa fa-heart-o" aria-hidden="true" style="color: red;"></i>
+                    </div>
+            </div>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="follow-links">
+    {% if profile_user != request.user and request.user.is_authenticated %}
+        {% if is_following %}
+        
+            <a class="btn btn-secondary" href="{% url 'unfollow_user' profile_user.id %}" id="unfollow">Unfollow</a>
+        {% else %}
+            <a class="btn btn-secondary" href="{% url 'follow_user' profile_user.id %}">Follow</a>
+        {% endif %}
+        <a class="btn btn-secondary" href="{% url 'send_message_to' profile_user.username %}" id="message">Send Message</a>
+   
+    {% endif %}
+</div>
+
+{% if profile_user == request.user %}
+<div class="edit-profile">
+    <a href="{% url 'profile' %}" class="btn btn-secondary" style="padding: 10px;background-color: aliceblue;border: 3px solid #ADD8E6;color:#008000 ;letter-spacing: 1px;width: 30%;">Edit Profile</a>
+</div>
+{% endif %} 
+
+    <div class="table">
+    <h2>Posts:</h2>
+    {% if posts %}
+    {% for post in posts %}
+        <div class="table-start">
+            <div class="second-div" style="border-radius: 10px;">
+                {% if post.image %}
+                <div class="table-right" style="border: none;">
+                    <div class="right-image">
+                    <img src="{{ post.image.url }}" alt="Post Image" width="300">
+                </div>
+                </div>
+                {% endif %}
+                 <div class="table-left" style="border: none;">
+                    <p style="color:#008000;font-size: 10px;">{{ post.created_at }}</p>
+                    <p>{{ post.text }}</p>
+                    {% if post.user == request.user %}
+                     <p > <a href="{% url 'delete_post' post.id %}" class="btn btn-primary" style="width: 30%;margin-top: 2%;padding: 10px;background-color:#FA8072;border: 1px solid #F08080;" onclick="return confirm('Are you sure you want to delete this post?')">Delete</a></p>  
+                    {% endif %}
+                </div>
+                
+                
+                </div>
+                
+                {% endfor %}
+                
+                {% else %}
+                    <p>No posts yet.</p>
+                {% endif %}
+
+            </div>      
+</div>
+ 
+</div>
+   
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this post?');
+    }
+</script>
+{% endblock %}

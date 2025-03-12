@@ -1,0 +1,17 @@
+<h1>News Feed</h1>
+
+{% if posts %}
+    {% for post in posts %}
+        <div>
+            <h2>Post by {{ post.user.username }}</h2>
+            <p>{{ post.text }}</p>
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="Post Image" width="200">
+            {% endif %}
+            <p>Created at: {{ post.created_at }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No posts from users you follow yet.</p>
+{% endif %}

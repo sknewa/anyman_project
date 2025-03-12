@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Search</h1>
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+
+    
+    {% if users and posts and result_type == 'all' %}
+    <button onclick="showUsers()">Users</button>
+    <button onclick="showPosts()">Posts</button>
+{% endif %}
+
+<div id="usersResults" {% if not users %}style="display: none;"{% elif result_type != 'users' and posts %}style="display: none;"{% endif %}>
+    <h2>Users</h2>
+    <ul>
+        {% for user in users %}
+            <li>
+                <a href="{% url 'user_profile' username=user.username %}">{{ user.username }}</a>
+            </li>
+        {% empty %}
+            <li>No users found.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div id="postsResults" {% if not posts %}style="display: none;"{% elif result_type != 'posts' and users %}style="display: none;"{% endif %}>
+    <h2>Posts</h2>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{% url 'post_detail' pk=post.id %}">{{ post.text }}</a>
+            </li>
+        {% empty %}
+            <li>No posts found.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script>
+    function showUsers() {
+        document.getElementById('usersResults').style.display = "block";
+        document.getElementById('postsResults').style.display = "none";
+    }
+
+</script>
+{% endblock %}

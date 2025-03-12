@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}AnyMan{% endblock %}</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        {% block css %}{% endblock %}
+    </head>
+<body>
+    <nav class="navbar navbar-expand-lg " style="background-color:#FFFFF0;border: 2px solid aliceblue;box-shadow: 3px 3px 3px 3px aliceblue;border-radius: 12px;">
+        <div class="container" style="background-color:#FFFFF0;border-bottom:2px;padding: 0px;">
+            <a class="navbar-brand" style="font-family: Arial, Helvetica, sans-serif;font-size: 20px;color: #6495ED;font-weight: 600;" href="{% url 'home' %}">AnyMan</a>
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <div class="containe-fluid navside" id="navbarNav" style="background-color: white;padding: 10px;border-radius:6px 25px;box-shadow: 1px 1px 1px 1px #98FB98;">
+                <ul  class="nav  nav-pills justify-content-end" >
+                        <li>
+                            <form id="searchForm">
+                                <input type="text" name="query" placeholder="Search...">
+                                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </form>
+                        </li>
+                        <li class="nav-item"><a  class="nav-link" href="{% url 'home' %}">Home</a></li> 
+                        {% if user.is_authenticated %}
+                        <!-- <li class="nav-item"><a class="nav-link" href="{% url 'news_feed' %}">News Feed</a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="{% url 'my_profile' %}">My Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'create_post' %}">Create Post</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'inbox' %}">Inbox{% if unread_count > 0 %}({{ unread_count }}){% endif %}</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="{% url 'sent' %}">Sent Messages</a></li> -->
+                        <!-- <li class="nav-item"><a class="nav-link" href="{% url 'message_thread' recipient_username=user.username %}"> messages </a></li> -->
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li class="nav-item"i><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="sidenav" id="mySidenav">
+                <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+                <br>
+                {% if user.is_authenticated %}
+            <div class="link">
+                <i class="fa fa-user" aria-hidden="true"></i> <a class="nav-link" href="{% url 'my_profile' %}">My Profile</a>
+            </div>
+            <div class="link">
+                <i class="fa fa-plus" aria-hidden="true"></i><a class="nav-link" href="{% url 'create_post' %}">Create Post</a>
+            </div>
+            <div class="link">
+                <i class="fa fa-inbox" aria-hidden="true"></i> <a class="nav-link" href="{% url 'inbox' %}">Inbox{% if unread_count > 0 %}({{ unread_count }}){% endif %}</a>
+            </div>
+            <div class="link">
+                <i class="fa fa-sign-out" aria-hidden="true"></i><a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </div>
+            {% else %}
+            <div class="link">
+                <i class="fa fa-unlock-alt" aria-hidden="true" style="color: 	#800000;"></i> <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </div>
+            <div class="link">
+                <i class="fa fa-registered" aria-hidden="true" style="color:forestgreen;"></i> <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </div>
+
+            {% endif %}
+            </div>
+            <span class="menu-logo" onclick="openNav()" style="font-size: 30px;cursor: pointer;">&#9776;</span>
+        </div>
+    </nav>
+    
+    <div class="container m-">
+        {% block content %}
+        
+        {% endblock%}
+    </div>
+
+      <!-- Footer -->
+    <footer class="Footer">
+        <p>&copy; 2025 Company App. All rights reserved.</p>
+    </footer>
+    <div id="searchResultsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="searchResults"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            const query = this.querySelector('input[name="query"]').value;
+
+            fetch(`/accounts/search/?query=${encodeURIComponent(query)}`)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('searchResults').innerHTML = html;
+                    document.getElementById('searchResultsModal').style.display = "block";
+                });
+        });
+
+        document.querySelector('.close').addEventListener('click', function() {
+            document.getElementById('searchResultsModal').style.display = "none";
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == document.getElementById('searchResultsModal')) {
+                document.getElementById('searchResultsModal').style.display = "none";
+            }
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.5/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script >
+      // Function to open the sidenav (triggered by the hamburger icon)
+function openNav() {
+    document.getElementById("mySidenav").style.width = "330px";  // Set width to show the sidenav
+    document.getElementById("mySidenav").style.display = "block";  // Ensure the sidenav is visible
+}
+
+// Function to close the sidenav (triggered by the close button '×')
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";  // Set width to 0 to hide the sidenav
+    document.getElementById("mySidenav").style.display = "none";  // Hide the sidenav
+}
+
+
+    </script>
+    {% block script %}
+    {% endblock %}
+</body>
+</html>
