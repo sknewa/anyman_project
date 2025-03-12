@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% block title %} Profile {% endblock %}
+{% load static %}
+{% block css %} <link rel="stylesheet" href="{% static 'accounts/css/register.css' %}"> {% endblock %}
+{% block content %}
+<h1 class="text-center">Register</h1>
+    <form method="post" enctype="multipart/form-data" class="border p-4 bg-white shadow-sm rounded ">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class= "btn-primary btn-block" >Register</button>
+    </form>
+    <div class="text-center mt-3 pb-5">
+        <a href="{% url 'login' %}" class="text-secondary">Already have an account? Log in</a>
+    </div>
+{% endblock %}

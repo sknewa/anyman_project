@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} inbox {% endblock %}
+{% block css %}  <link rel="stylesheet" href="{% static 'accounts/css/inbox.css' %}"> {% endblock %}
+{% block content %}
+<div class="container-inbox">
+    <h1>Inbox</h1>
+    <a class="btn btn-primary" href="{% url 'send_message' %}">Compose Message</a>
+    <ul class="message-list">
+        {% for other_user, message in conversations %}
+            <li class="message-item {% if not message.is_read %}unread{% endif %}">
+                {% if other_user %}
+                <a href="{% url 'message_thread' recipient_username=other_user.username %}">
+                    {% if message.sender == request.user %}
+                            <span class="sender">{{ other_user.username }}</span>
+                        {% else %}
+                            <span class="sender">{{ other_user.username }}</span>
+                        {% endif %}
+                    <!-- <span class="latest-message">{{ message.subject }}</span> -->
+                    <span class="timestamp">{{ message.sent_at }}</span>
+                    {% endif %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+    {% include 'message/pagination.html' with page=messages %}
+{% endblock %}

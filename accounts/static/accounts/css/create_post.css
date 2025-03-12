@@ -1,0 +1,53 @@
+
+
+button {
+    padding: 10px;
+    width: 25%;
+}
+textarea{
+    margin-top: 4%;
+    
+    width: 50%;
+    height: 100px;
+    box-shadow:3px 3px 3px 3px 	#5F9EA0 ;
+    border-radius: 3px 36px;
+}
+@media (max-width:500px){
+    textarea{
+        width: 98%;
+        height: 130px;
+    }
+}
+label{
+    font-size: 18px;
+    color: grey;
+}
+button{
+    width: 30%;
+    margin-top: 2%;
+    height: 50px;
+    border: 1px solid #5F9EA0;
+    border-radius: 100px;
+}
+@media (max-width:500px){
+    button{
+        width: 40%;
+    }
+}
+input{
+    padding: 10px;
+    border-radius: 6px;
+    width: 40%;
+    height: 50px;
+    border: 2px solid #778899;
+    margin-top: 3%;
+}
+@media (max-width:500px){
+    input{
+        width: 98%;
+    }
+}
+input::placeholder{
+    font-size: 18px;
+    color: grey;
+}

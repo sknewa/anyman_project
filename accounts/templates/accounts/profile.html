@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+{% block title %} Profile {% endblock %}
+{% load static %}
+{% block css %} <link rel="stylesheet" href="{% static 'accounts/css/profile.css' %}"> {% endblock %}
+{% block content %}
+<div class="form-container">
+    <form method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            {{ form.as_p }}
+       
+        <button type="submit" class="btn btn-primary">Update Profile</button>
+    </form>
+</div>
+{% endblock %}

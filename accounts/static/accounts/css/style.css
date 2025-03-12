@@ -1,0 +1,362 @@
+*{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+}
+#searchForm{
+    /* background-color: red; */
+    padding: 4px;
+}
+#searchForm input{
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid #98FB98;
+    width: 55%;
+}
+#searchForm button{
+    padding: 4px;
+    border-radius: 6px;
+    border: none;
+    width: 25%;
+    background-color: aliceblue;
+}
+#searchForm button i{
+    color: #98FB98;
+    font-weight: 600;
+}
+/*  */
+
+@media (max-width:500px){
+.navside{
+    display: none;
+}
+}
+.menu-logo{
+    display: none;
+}
+@media (max-width:500px){
+    .menu-logo{
+    display: block;
+    }
+ }
+ .sidenav {
+    height: 100%;
+    position: fixed;
+    overflow-x: hidden;
+    z-index: 1;
+    top: 8%;
+    left: 0%;
+    background-color: aliceblue;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: none; /* Hide by default */
+}
+
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0%;
+    right: 0px;
+    font-size: 22px;
+    font-weight: 600;
+    margin-left: 10px;
+    color: red;
+    text-align: right;
+    width: fit-content;
+}
+
+@media (max-width: 500px) {
+    .sidenav .closebtn {
+        top: 0%;
+        right: 0px;
+        font-size: 36px;
+        margin-left: 10px;
+        color: #eee;
+        text-align: right;
+        width: fit-content;
+        color: red;
+    }
+}
+
+.sidenav .link {
+    padding: 15px;
+    border-bottom: 0.2px solid #dddddd;
+    width: 98%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: left;
+}
+
+@media (max-width: 500px) {
+    .sidenav .link {
+        padding: 15px;
+        border-bottom: 0.2px solid #dddddd;
+        margin-top: 0%;
+    }
+}
+
+
+.sidenav a{
+   
+    font-size: 19px;
+    text-transform: capitalize;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 400;
+    text-decoration: none;
+    text-align: left;
+    align-items: left;
+    /* padding: 10px; */
+    padding-top: 1%;
+    color: #444;
+    width: 100%;
+    border-bottom: 0.2px solid #eee;
+    
+}
+@media (max-width:500px){
+    .sidenav a{
+       display: block;
+       margin-top: 1%;
+       padding: 17px; 
+       color: #555;
+       border-bottom: 0.2px solid #eee;
+       /* border: 1px solid rgba(0,0,0,0.5); */
+       text-align: left;
+    }
+}
+@media (max-width:500px){
+    .sidenav .link:hover{
+   background-color: #ffff;
+   color: #eee;
+    }
+ }
+.link i{
+    font-size: 30px;
+    border-radius: 100px;
+    border-bottom: 0.2px solid #eee;
+    margin-left: 3%;
+}
+
+.nav-link{
+    padding: 10px;
+    font-size: 18px;
+    color: #007bff;
+    font-weight:600;   
+}
+
+.nav-link:hover{
+    /* border: 1px solid rgba(0,0,0,0.5); */
+    /* border-radius: 100%; */
+    color: black;
+    width: 100%;
+    font-weight:600;   
+}
+.navbar-brand{
+    text-transform: uppercase;
+    font-size: 16px;
+}
+/*  */
+.block{
+    height: 500px;
+    margin-top: 2%;
+}
+.text{
+    padding: 20px;
+    background-size: cover;
+    height: 450px;
+    /* background-color: rgba(0,0,0,0.5); */
+    border-radius: 6px;
+    margin-bottom: 1%;
+}
+.image{
+    margin-bottom: 1%;
+}
+.image img{
+    height: 400px;
+    width: 100%;  
+}
+.headertext{
+    position: absolute;
+    top:40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* border: 1px solid red; */
+
+}
+.headertext h1{
+    font-size: 60px;
+    color: black;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+/*  */
+.buttons{
+    margin-top: 0%;
+    display: flex;
+    /* border: 1px solid red; */
+    justify-content: space-between;
+    
+}
+.buttonsbox{
+    width: 100%;
+    align-items: center;
+    margin-left: 32%;
+}
+.buttons button{
+    width: 25%;
+    height: 60px;
+    font-size: 18px;
+    text-transform: capitalize;
+    border: 2px solid rgb(211, 202, 202);
+    margin-right: 3%;
+    border-radius: 100px;
+    
+}
+.btn1{
+    background-color: brown;
+}
+.btn1:hover{
+    background-color: rgb(194, 34, 34);
+    font-weight: 600;
+    text-transform: capitalize;
+    border-radius: 100px;
+    color: white;
+}
+.btn2{
+    background-color: rgb(20, 20, 119); 
+}
+.btn2:hover{
+    background-color: blue;
+    font-weight: 600;
+    text-transform: capitalize;
+    border-radius: 100px;
+    color: white;
+    font-size: 20px;
+}
+.buttonsbox a{
+    font-size: 20px;
+    color: white;
+    
+}
+.buttonsbox a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+/*  */
+
+.divide {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+    /* max-width: 100vh; */
+
+}
+.left{
+    width:50%;
+}
+.right{
+    margin-left:1%;
+    width:50%;
+}
+.left img{
+    width:100%;
+    height:50vh;
+    border-radius:12px;
+    margin-top: 8%;
+}
+.right h1 {
+    text-align: left;
+    text-transform:uppercase;
+    font-size: 24px;
+    font-family: Arial;
+    padding:10px;
+    margin-left:3%;
+}
+.right p{
+    margin-left:2%;
+}
+.text p {
+    text-transform: capitalize;
+    font-size: 17px;
+    font-family: Arial;
+    text-align:left;
+}
+
+/* load more button */
+
+.load-data #loadMore{
+    width: 30%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 35%;
+    height: 50px;
+    border-radius: 100px;
+}
+.load-data #loadMore:hover{
+    background-color: #eee;
+    color: black;
+    border: 1px solid #007bff;
+}
+
+/*  */
+.Footer{
+    padding: 16px;
+    margin-top: 3%;
+    background-color: aliceblue;
+}
+.Footer p{
+    text-transform: capitalize;
+    font-size: 14px;
+    font-family: Arial;
+    text-align:center;
+    padding: 13px;
+    margin-top: 2%;
+    background-color: 	#F0E68C;
+ 
+}
+/* popup */
+#searchResultsModal{
+    background-color:white;
+}
+#searchResultsModal h1{
+    margin-top: 3%;
+    display: none;
+}
+
+#searchResultsModal .close{
+    color: red;
+    padding:10px;
+    font-size: 30px;
+    border: 1px solid red;
+    background-color: white;
+    margin-left: 2%;
+    width: fit-content;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-top: 2%;
+}
+#searchResultsModal form{
+    display: none;
+}
+#searchResultsModal h2{
+    text-transform: capitalize;
+    padding: 7px;
+    font-size: 22px;
+    margin-top: 2%;
+    color: dodgerblue;
+}
+#searchResultsModal ul {
+    list-style:none;
+}
+#searchResultsModal ul li{
+    text-transform: capitalize;
+    padding: 10px;
+    font-size: 17px;
+    margin-top: 2%;
+    background-color: aliceblue;
+}

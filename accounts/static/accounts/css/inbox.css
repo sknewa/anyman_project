@@ -1,0 +1,45 @@
+
+.container-inbox{
+    margin-top: 3%;
+}
+.container h1{
+    color: #191970;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 3%;
+}
+.timestamp{
+    color: gray;
+    font-size: 13px;
+}
+.sender{
+    font-size: 18px;
+   
+    text-transform: capitalize;
+    font-weight: 600;
+    color: dodgerblue;
+}
+.message-list{
+    background-color: aliceblue;
+    margin: 3%;
+    padding: 2%;
+    border-radius: 12px;
+}
+.message-item{
+    background-color: white;
+    border: 1px solid aliceblue;
+    padding: 25px;
+    list-style: none;
+    margin-top: 3%;
+}
+.message-item a{
+    padding: 10px;
+    text-decoration: none;
+    font-size: 22px;
+}
+.message-item a:hover{
+    text-decoration: underline;
+    background-color: aliceblue;
+    text-transform: uppercase;
+}

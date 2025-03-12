@@ -1,0 +1,44 @@
+.container-message{
+    margin-top: 3%;
+}
+.container-message h1{
+    color: #191970;
+    text-transform: uppercase;
+    font-size: 19px;
+    padding: 10px;
+    font-weight: 600;
+    margin-top: 3%;
+}
+form{
+    margin: 3% 3%;
+    
+}
+label{
+    font-size: 18px;
+    color: grey;
+}
+select{
+    padding: 10px;
+    border-radius: 6px;
+    width: 60%;
+    height: 50px;
+    border: 2px solid #778899;
+    margin-top: 3%;
+}
+select::placeholder{
+    font-size: 18px;
+    color: grey;
+}
+textarea{
+    margin-top: 4%;
+    
+    width: 50%;
+    height: 100px;
+    box-shadow:3px 3px 3px 3px 	#5F9EA0 ;
+    border-radius: 3px 36px;
+}
+button{
+    width: 30%;
+    margin-top: 2%;
+    height: 50px;
+}

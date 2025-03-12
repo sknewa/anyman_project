@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} message_thread {% endblock %}
+{% block css %}  <link rel="stylesheet" href="{% static 'accounts/css/message_thread.css' %}"> {% endblock %}
+{% block content %}
+<div class="container"> 
+    <div class="message-detail">
+        {% for message in messages %}
+            <div class="message {% if message.sender == request.user %}sent{% else %}received{% endif %}">
+                <h1>{{ message.sender.username }}</h1>
+                <p>{{ message.body }}</p>
+                <p style="color: gray;font-size: 13px;"><i class="fa fa-calendar" aria-hidden="true" style="font-size: 12px;"></i><span style="margin-left: 2%;">{{ message.sent_at }}</span></p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Send</button>
+    </form>
+    </div>
+{% endblock %}

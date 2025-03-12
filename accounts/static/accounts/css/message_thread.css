@@ -1,0 +1,98 @@
+.container{
+    margin-top: 3%;
+}
+.message{
+    background-color: red;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(360px,auto));
+    margin: 1% 1%;
+}
+.message h1{
+    font-size: 16px;
+    color:#5F9EA0 ;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin-left: 4%;
+}
+.sent{
+    background-color: 	#F8F8FF; 
+    width: 50%;
+    margin-left: 50%;
+    padding-top: 5px;
+    box-shadow:3px 3px 3px 3px 	#5F9EA0 ;
+    border-radius: 36px 6px;
+}
+@media (max-width:500px){
+    .sent{
+        width: 100%;
+        margin-left: 0%;
+        margin-top: 4%;
+    } 
+}
+.received{
+    background-color: #DCDCDC;
+    width: 50%;
+    margin-right: 0%;
+    padding-top: 5px;
+    border-radius: 36px 6px;
+    box-shadow:3px 3px 3px 3px 	#5F9EA0;
+}
+@media (max-width:500px){
+    .received{
+        width: 100%;
+        margin-top: 4%;
+    } 
+}
+.message p{
+    font-size: 14px;
+    text-transform: capitalize;
+    color: black;
+    margin-left: 4%;
+}
+form textarea{
+    /* border: 1px solid red; */
+    width: 80%;
+    height: 100px;
+    box-shadow:3px 3px 3px 3px 	#5F9EA0 ;
+    border-radius: 3px 36px;
+}
+@media (max-width:500px){
+    form textarea{
+        width: 100%;
+    }  
+}
+label{
+    font-size: 18px;
+    color: grey;
+    margin-top: 3%;
+}
+input{
+    padding: 10px;
+    border-radius: 6px;
+    width: 60%;
+    height: 50px;
+    border: 2px solid #778899;
+    margin-top: 3%;
+}
+input::placeholder{
+    font-size: 18px;
+    color: grey;
+}
+button{
+    width: 30%;
+    margin-top: 2%;
+    height: 50px;
+    font-size: 18px;
+    text-transform: capitalize;
+    background-color: 	#66CDAA;
+    color: white;
+    border: 1px solid 	#3CB371;
+    border-radius: 100px;
+}
+@media (max-width:500px){
+    button{
+        width: 50%;
+    }   
+}
+

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} sent {% endblock %}
+{% block css %} <link rel="stylesheet" href="{% static 'accounts/css/sent.css' %}"> {% endblock %}
+{% block content %}
+    <h1>Sent Messages</h1>
+    {% for message in messages %}
+        <a href="{% url 'message_detail' message.id %}">
+            {{ message.subject }} - To {{ message.recipient.username }}
+        </a><br>
+    {% endfor %}
+    {% endblock %}

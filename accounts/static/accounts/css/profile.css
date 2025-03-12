@@ -1,0 +1,38 @@
+.form-container{
+    margin-top: 3%;
+}
+
+form{
+    margin: 1% 20%;
+    display: block;
+    /* border: 1px solid red; */
+}
+form input{
+    font-size: 14px;
+    text-transform: capitalize; 
+    color: gray;
+    padding: 10px;
+    width: auto;
+}
+
+form label{
+    padding: 6px;
+    font-size: 15px;
+    text-transform: capitalize;
+    color: rgb(7, 7, 46);
+}
+form p{
+    padding: 6px;
+    font-size: 18px;
+    text-transform: capitalize; 
+}
+.helptext{
+    color: green;
+    padding: 6px;
+    font-size: 15px;
+    text-transform: capitalize;
+}
+#profile_picture_clear_id{
+    justify-content: left;
+    width: auto;
+}

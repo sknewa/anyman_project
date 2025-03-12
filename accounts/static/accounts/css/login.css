@@ -1,0 +1,43 @@
+.login-container{
+    margin-top: 5%;
+    background-color: 	aliceblue;
+    box-shadow: 3px 3px 3px 3px #778899;
+    border-radius: 6px;
+}
+.header{
+
+    text-transform:capitalize;
+    font-size: 30px;
+    font-family: Arial;
+    padding:10px;
+    color: 	#9FAFDF;
+
+}
+.header i{
+    margin-right: 3%;
+}
+form{
+    margin: 3% 3%;
+    
+}
+label{
+    font-size: 18px;
+    color: grey;
+}
+input{
+    padding: 10px;
+    border-radius: 6px;
+    width: 60%;
+    height: 50px;
+    border: 2px solid #778899;
+    margin-top: 3%;
+}
+input::placeholder{
+    font-size: 18px;
+    color: grey;
+}
+button{
+    width: 30%;
+    margin-top: 2%;
+    height: 50px;
+}
